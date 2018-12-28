@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Icon, Segment, Table, Input, SemanticICONS, Label } from 'semantic-ui-react'
+import { Container, Header, Icon, Segment, Table, Input, SemanticICONS, Button } from 'semantic-ui-react'
 import './App.css';
 
 const iconName = (('video file outline') as SemanticICONS);
@@ -27,6 +27,10 @@ class App extends Component {
     });
   }
 
+  upload = () => {
+    alert('todo: implement upload to AWS S3');
+  }
+
   render() {
     return (
 
@@ -43,7 +47,7 @@ class App extends Component {
               When the thumbnails are generated, they will appear here.
             </Header>
 
-            <Input action='Upload video' placeholder='Select video...' type="file" onChange={this.handleFileChange} name="selectedVideo"/>
+            <Input placeholder='Select video...' type="file" onChange={this.handleFileChange} name="selectedVideo"/>
           </Segment>
 
           {/* Display file info before uploading */}
@@ -74,6 +78,8 @@ class App extends Component {
                 </Table.Row>
               </Table.Body>
             </Table>
+
+            <Button primary onClick={this.upload}>Upload video</Button>
 
           </Segment>}
           
