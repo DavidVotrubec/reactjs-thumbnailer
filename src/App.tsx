@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import { Container, Header, Icon, Segment, Button, Input, SemanticICONS } from 'semantic-ui-react'
+import { Container, Header, Icon, Segment, Table, Input, SemanticICONS, Label } from 'semantic-ui-react'
 import './App.css';
 
 const iconName = (('video file outline') as SemanticICONS);
+const emptyObject = {};
 
 class App extends Component {
+  
+  state = {
+    selectedVideo: emptyObject
+  }
+
   handleFileChange = (event: any) => {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
+    const file = event.target.files[0];
+
+    console.log("Filename: " + file.name);
+    console.log("Type: " + file.type);
+    console.log("Size: " + file.size + " bytes");
+
     this.setState({
-      [name]: value
+      selectedVideo: file
     });
   }
 
@@ -31,8 +43,40 @@ class App extends Component {
               When the thumbnails are generated, they will appear here.
             </Header>
 
-            <Input action='Upload video' placeholder='Select video...' type="file" onChange={this.handleFileChange}/>
+            <Input action='Upload video' placeholder='Select video...' type="file" onChange={this.handleFileChange} name="selectedVideo"/>
           </Segment>
+
+          {/* Display file info before uploading */}
+          {this.state.selectedVideo != emptyObject && 
+          <Segment>
+
+            <Table celled>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>
+                    Filename
+                  </Table.Cell>
+                  <Table.Cell>
+                    {(this.state.selectedVideo as File).name}
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Filesize</Table.Cell>
+                  <Table.Cell>
+                  {(this.state.selectedVideo as File).size} bytes
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Last modified</Table.Cell>
+                  <Table.Cell>
+                  {(this.state.selectedVideo as any).lastModifiedDate.toLocaleDateString()}
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+
+          </Segment>}
+          
           
         </Container>
       </React.Fragment>
