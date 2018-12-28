@@ -1,3 +1,12 @@
+
+# Vide Thumbnailer
+## This is learning project to lear ReactJS and AWS
+
+## Technologies used
+1. [AWS Amplify](https://aws-amplify.github.io/docs/js/react)
+1. [React components for Semantic UI](https://react.semantic-ui.com/)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
