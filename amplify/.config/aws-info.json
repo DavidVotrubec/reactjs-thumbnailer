@@ -1,0 +1,6 @@
+{
+    "configLevel": "project",
+    "useProfile": true,
+    "region": "eu-central-1",
+    "profileName": "serverless-agent"
+}

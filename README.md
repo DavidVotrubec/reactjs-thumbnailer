@@ -1,11 +1,52 @@
 
-# Vide Thumbnailer
+# Video Thumbnailer
 ## This is learning project to lear ReactJS and AWS
 
 ## Technologies used
 1. [AWS Amplify](https://aws-amplify.github.io/docs/js/react)
 1. [React components for Semantic UI](https://react.semantic-ui.com/)
 
+## Problems encountered
+1. I can not use recommended approach for uploading via `amplify publish`. I've created the user, and assigned it grants, but it still fails to create S3 bucket, even when it has policy "s3:CreateBucket". Fun-fucking-tastic ...
+1. I've updated `aws-info.json` file to use older profile named `serverless-agent`. Note that the profile used in first step was `amplify-thumbnailer`, and it had the same exact grants, but failed to upload to S3. Da fuck is that?
+1. So when I tried `amplify publish` with that profile, it failed with error `error: uncaughtException: Cannot read property 'HostingBucketName' of undefined `
+Ach jo.... tohle je na hovno.
+
+S profilem `serverless-agent` to zase padalo na chybě, že `missing region in config`. Pomohlo přidat ho do ~/.aws/credentials. Ale je to teda oser, dohledávat možné příčiny...
+
+```
+
+CREATE_IN_PROGRESS DeploymentBucket AWS::S3::Bucket Fri Dec 28 2018 15:53:36 GMT+0100 (GMT+01:00)
+CREATE_IN_PROGRESS AuthRole         AWS::IAM::Role  Fri Dec 28 2018 15:53:36 GMT+0100 (GMT+01:00)
+CREATE_IN_PROGRESS UnauthRole       AWS::IAM::Role  Fri Dec 28 2018 15:53:36 GMT+0100 (GMT+01:00)
+CREATE_IN_PROGRESS UnauthRole       AWS::IAM::Role  Fri Dec 28 2018 15:53:37 GMT+0100 (GMT+01:00) Resource creation Initiated
+CREATE_IN_PROGRESS DeploymentBucket AWS::S3::Bucket Fri Dec 28 2018 15:53:37 GMT+0100 (GMT+01:00) Resource creation Initiated
+CREATE_IN_PROGRESS AuthRole         AWS::IAM::Role  Fri Dec 28 2018 15:53:37 GMT+0100 (GMT+01:00) Resource creation Initiated
+/ Initializing project in the cloud...
+
+CREATE_COMPLETE UnauthRole                        AWS::IAM::Role             Fri Dec 28 2018 15:53:54 GMT+0100 (GMT+01:00)
+CREATE_COMPLETE AuthRole                          AWS::IAM::Role             Fri Dec 28 2018 15:53:55 GMT+0100 (GMT+01:00)
+CREATE_COMPLETE DeploymentBucket                  AWS::S3::Bucket            Fri Dec 28 2018 15:53:58 GMT+0100 (GMT+01:00)
+CREATE_COMPLETE reactjsthumbnailer-20181228155335 AWS::CloudFormation::Stack Fri Dec 28 2018 15:54:01 GMT+0100 (GMT+01:00)
+√ Successfully created initial AWS cloud resources for deployments.
+
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify <category> add" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
+
+
+Select the environment setup: DEV (S3 only with HTTP)
+hosting bucket name reactjsthumbnailer-20181228155548-hostingbucket
+index doc for the website index.html
+error doc for the website index.html
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

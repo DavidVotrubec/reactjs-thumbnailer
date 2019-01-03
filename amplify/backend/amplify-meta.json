@@ -1,0 +1,25 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "reactjsthumbnailer-20181228155335-authRole",
+            "UnauthRoleArn": "arn:aws:iam::468609376333:role/reactjsthumbnailer-20181228155335-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::468609376333:role/reactjsthumbnailer-20181228155335-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "reactjsthumbnailer-20181228155335-deployment",
+            "UnauthRoleName": "reactjsthumbnailer-20181228155335-unauthRole",
+            "StackName": "reactjsthumbnailer-20181228155335",
+            "StackId": "arn:aws:cloudformation:eu-central-1:468609376333:stack/reactjsthumbnailer-20181228155335/58c7ed10-0ab0-11e9-be9e-0649507b8a60"
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/reactjsthumbnailer-20181228155335-deployment/amplify-cfn-templates/hosting/template.json",
+                "logicalId": "hostingS3AndCloudFront"
+            },
+            "lastPushTimeStamp": "2019-01-03T12:41:21.621Z"
+        }
+    }
+}

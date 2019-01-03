@@ -1,0 +1,20 @@
+{
+    "projectName": "reactjsthumbnailer",
+    "projectPath": "C:\\src\\personal\\reactjs-thumbnailer",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "C:\\Users\\david\\AppData\\Roaming\\nvm\\v10.13.0\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm.cmd run-script build",
+            "StartCommand": "npm.cmd run-script start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "C:\\Users\\david\\AppData\\Roaming\\nvm\\v10.13.0\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
+    }
+}
