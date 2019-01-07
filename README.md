@@ -8,6 +8,12 @@
 1. Dockerized MediaInfo binary with curl support. Used to extract media info from videos uploaded to S3. I did not use https://hub.docker.com/r/jlesage/mediainfo because it seems not have support for curl access, I did not find it there.
 1. TODO: Store mediainfo ni DynamoDB
 
+## Prerequisities
+Configururation:
+1. `pulumi config set aws:region eu-west-1` // Because of Fargate
+1. `pulumi config set cloud-aws:useFargate true`
+1. `pulumi plugin install resource aws v0.16.5`
+
 ## Problems encountered
 1. I can not use recommended approach for uploading via `amplify publish`. I've created the user, and assigned it grants, but it still fails to create S3 bucket, even when it has policy "s3:CreateBucket". Fun-fucking-tastic ...
 1. I've updated `aws-info.json` file to use older profile named `serverless-agent`. Note that the profile used in first step was `amplify-thumbnailer`, and it had the same exact grants, but failed to upload to S3. Da fuck is that?
