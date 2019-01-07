@@ -1,10 +1,12 @@
 
 # Video Thumbnailer
-## This is learning project to lear ReactJS and AWS
+## This is learning project to learn ReactJS and AWS
 
 ## Technologies used
 1. [AWS Amplify](https://aws-amplify.github.io/docs/js/react)
 1. [React components for Semantic UI](https://react.semantic-ui.com/)
+1. Dockerized MediaInfo binary with curl support. Used to extract media info from videos uploaded to S3. I did not use https://hub.docker.com/r/jlesage/mediainfo because it seems not have support for curl access, I did not find it there.
+1. TODO: Store mediainfo ni DynamoDB
 
 ## Problems encountered
 1. I can not use recommended approach for uploading via `amplify publish`. I've created the user, and assigned it grants, but it still fails to create S3 bucket, even when it has policy "s3:CreateBucket". Fun-fucking-tastic ...

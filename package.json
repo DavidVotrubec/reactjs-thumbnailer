@@ -2,6 +2,7 @@
     "name": "typescript",
     "devDependencies": {
         "@pulumi/aws": "^0.16.5",
+        "@pulumi/cloud-aws": "^0.16.2",
         "@types/node": "latest"
     },
     "dependencies": {
